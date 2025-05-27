@@ -1,0 +1,65 @@
+/*In this Scss file let set our Variables*/
+//Let first of insert our color variables like in a library
+
+/*Primary Project Colors*/
+$Purple600: hsl(246, 80%, 60%);
+$Orange300: hsl(15, 100%, 70%);
+$Blue300 : hsl(195, 74%, 62%);
+$Pink400: hsl(348, 100%, 68%);
+$Green400 : hsl(145, 58%, 55%);
+$Purple700: hsl(264, 64%, 52%);
+$Yellow300: hsl(43, 84%, 65%);
+$white:hsl(255,100%,100%);
+
+/*Neutral*/
+
+$Navy950: hsl(226, 43%, 10%);
+$Navy900: hsl(235, 46%, 20%);
+$Purple500: hsl(235, 45%, 61%);
+$Navy200: hsl(236, 100%, 87%);
+
+/*Let set our flex-center mixin*/
+@mixin flex-center{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+@mixin Myimage{
+           background-image: url("./assets/images/image-jeremy.png");
+            background-position: center;
+            background-size: cover;
+            background-repeat: no-repeat;
+}
+@mixin Bgimage{
+     background-position: center;
+            background-size: cover;
+            background-repeat: no-repeat;
+}
+
+$maxTransitions:1s all ease-in-out;
+$minTransitions:0.5s all ease-in-out;
+
+$Gaps:(
+    "small":0.5rem,
+    "regular":0.75rem,
+      "large":1rem,
+      "very-large":1.5rem,
+      "max":2rem,
+);
+
+/*Now let create breakpoints to our program*/
+$Tablette:40rem;
+$Desktop:48rem;
+$LargeScreen:80rem;
+
+@mixin respond-to($breakpoint){
+  @if $breakpoint == tablette{
+    @media(min-width:$Tablette) { @content;}  
+  }
+  @else if $breakpoint == desktop{
+    @media(min-width:$Desktop){ @content;}
+  }
+  @else if $breakpoint == LargeScreen{
+    @media(min-width:$LargeScreen){ @content;}
+  }
+}

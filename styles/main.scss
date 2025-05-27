@@ -1,0 +1,246 @@
+/*Let set our Scss file*/ 
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: sans-serif;
+}
+    .attribution { 
+        font-size: 11px; 
+        text-align: center; 
+    }
+    .attribution a { 
+        color: hsl(228, 45%, 44%); 
+    }
+
+
+@import './components.scss';
+body{
+    background-color: $Navy950;
+    @include flex-center;
+    flex-direction: column;
+    min-height: 100vh
+}
+#container{
+    @include flex-center;
+    flex-direction: column;
+    border-radius: 1rem;
+    height: 65rem;
+    width: 90%;
+    margin: 1rem;
+    @include respond-to(tablette){
+      width: 80%; height: 55rem;
+      display: flex;
+      flex-direction: row;
+    }
+    @include respond-to(desktop){
+      height: 45rem;
+      width: 95%
+    }
+    @include respond-to(LargeScreen){
+     width: 75rem;
+      gap: 1rem;
+      transition: 0.5s all ease-in-out;
+      animation: FadeIn 1s forwards;
+    }
+
+    .wrapper1{
+     @include flex-center;
+     width: 90%;
+     height: 15%;
+     margin: 0.5rem;
+     flex-direction: column;
+     padding: 0.5rem;
+     border-radius: 1rem;
+     background-color: $Navy900;
+     @include respond-to(tablette){
+      height: 55%;
+       font-size: 1.5rem;
+     }
+     @include respond-to(desktop){
+      height: 80%;
+         width: 30%;
+     }
+     @include respond-to(LargeScreen){
+      width:25%;
+      height: 85%;
+     }
+    .TopCard{
+        height: 70%;
+        border: 1rem;
+        width: 100%;
+        border-radius: 1rem;
+        background-color: $Purple600;
+        transition: 0.5s all ease-in-out;
+        display: flex;
+        @include respond-to(tablette){
+          @include flex-center;
+          flex-direction: column;
+          &:hover{
+            filter: brightness(1.1);
+          }
+        }
+        @include respond-to(desktop){
+          height: 60%;
+          display: block;
+          padding: 2rem;
+          height: 60%;
+          
+        }
+        .Img{
+            border: 2px solid $white;
+            border-radius: 50%;
+            height: 4rem; width: 4rem;
+            padding: 0.5em;
+            margin: 0.5rem;
+            @include Myimage;
+            cursor: pointer;
+            transition: $minTransitions;
+            @include respond-to(tablette){
+              height: 8rem;
+              width: 8rem;
+            }
+            @include respond-to(desktop){
+              height: 7rem; width: 7rem;
+            }
+            &:hover{
+                scale: 1.1;
+            }
+        }
+        p{
+            margin: 1rem 0 0 0;
+            color: $white;
+            padding: 0.5rem;
+            @include respond-to(desktop){
+              font-size: 1.2rem;
+            }
+        }
+    }
+    .BottomCard{
+        height: 30%;
+        width: 100%;
+        @include flex-center;
+        border-radius: 0 0 1rem 1rem ;
+        color: $white;
+        background-color: $Navy900;
+        gap: map-get($map: $Gaps, $key:large );
+        @include respond-to(desktop){
+          display: flex;
+          flex-direction: column;
+          justify-content:center;
+          align-items: flex-start;
+          gap: 1rem;
+        }
+        p{
+            transition: $minTransitions;
+            font-weight: bold;
+             cursor: pointer;
+             font-size: 14px;
+             @include respond-to(tablette){
+          font-size: 1.2rem;
+        }
+          &:hover{
+            scale: 1.1;
+          }
+        }
+    }
+    }
+
+    .wrapper2{
+        height: 85%;
+        width: 100%;
+        background-color: $Navy950;
+        @include flex-center;
+        flex-direction: column;
+        gap: map-get($map: $Gaps, $key:regular );
+        @include respond-to(tablette){
+          height: 90%;
+        }
+        @include respond-to(desktop){
+          display: grid;
+          grid-template-columns: repeat(3,1fr);
+          width: 70%;
+          height: 100%;
+          justify-items: center;
+
+        }
+        .cards{
+          width: 90%;
+          height: 15%;
+          border-radius: 1rem;
+          @include flex-center;
+          flex-direction: column;
+          @include respond-to(desktop){
+            height: 80%;
+            width: 100%;
+          }
+          @include respond-to(LargeScreen){
+            width: 100%;
+          }
+          .cardstops{
+            height: 30%;
+            background-color: $Orange300;
+            transition: $minTransitions;
+            width: 100%;
+            border-radius: 1rem 1rem 0 0;
+            display: flex;
+            justify-content: flex-end;
+            overflow: hidden;
+            &:hover{
+                filter: brightness(1.1);
+            }
+            img{
+                scale: 1.2;
+            }
+          }
+          .cards_inside{
+            background-color: $Navy900;
+            width: 100%;
+            height: 70%;
+            border-radius: 0.75rem ;
+            color: $white;
+            @include flex-center;
+          }
+          .text1{
+            padding: 0.5rem;
+            margin: 0.5rem;
+            font-weight: bold;
+            width: 60%;
+            p:nth-child(2){
+                font-size: 1.5rem;
+                margin: 0.2rem;
+                padding: 0.2rem;
+                @include respond-to(desktop){
+                  font-size: 2rem;
+                }
+                @include respond-to(LargeScreen){
+                  font-size: 2.3rem;
+                }
+            }
+          }
+          .text2{
+            width: 40%;
+            height: 100%;
+            display: grid;
+          }
+          p:nth-child(2){
+            font-size: 12px;
+            @include respond-to(tablette){
+              font-size: 14px;
+            }
+            @include respond-to(LargeScreen){
+              font-size: 16px;
+            }
+          }
+        }
+    }
+}
+
+
+@keyframes FadeIn{
+  from{
+    opacity: 0;
+  }
+  to{ opacity: 1;}
+}
+    
